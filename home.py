@@ -3,6 +3,7 @@ import uuid
 import extra_streamlit_components as stx
 import pandas as pd
 import gspread
+import datetime
 
 st.header("Rate Your Class")
 
@@ -10,9 +11,11 @@ controller = stx.CookieManager()
 
 u = controller.get('uuid')
 
+date = datetime.datetime(2199, 10, 25).isoformat()
+
 if u is None:
     u = str(uuid.uuid4())
-    controller.set('uuid', u, expires_at = 2199-12-31)
+    controller.set('uuid', u, expires_at = date)
 
 grade = st.selectbox('Enter your grade:', options = [9, 10, 11, 12])
 major = st.selectbox('Enter the major/field you are most interested in:', options = ['Math', 'Science', 'Comp-Sci', 'Med'])
