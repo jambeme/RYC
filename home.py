@@ -11,7 +11,7 @@ controller = stx.CookieManager()
 
 u = controller.get('uuid')
 
-date = datetime.datetime(2199, 10, 25).isoformat()
+date = datetime.datetime(2199, 10, 25)
 
 if u is None:
     u = str(uuid.uuid4())
