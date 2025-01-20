@@ -4,6 +4,7 @@ import extra_streamlit_components as stx
 import pandas as pd
 import gspread
 import datetime
+import time
 
 st.header("Rate Your Class")
 
