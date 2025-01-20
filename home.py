@@ -10,12 +10,14 @@ st.header("Rate Your Class")
 controller = stx.CookieManager()
 
 u = controller.get('uuid')
-
+datetime.time.sleep(2)
 date = datetime.datetime(2199, 10, 25)
 
 if u is None:
     u = str(uuid.uuid4())
     controller.set('uuid', u, expires_at = date)
+
+#do this in a st.popover
 
 grade = st.selectbox('Enter your grade:', options = [9, 10, 11, 12])
 major = st.selectbox('Enter the major/field you are most interested in:', options = ['Math', 'Science', 'Comp-Sci', 'Med'])
