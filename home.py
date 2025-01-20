@@ -11,7 +11,7 @@ st.header("Rate Your Class")
 controller = stx.CookieManager()
 
 u = controller.get('uuid')
-datetime.time.sleep(2)
+time.sleep(2)
 date = datetime.datetime(2199, 10, 25)
 
 if u is None:
