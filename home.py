@@ -109,14 +109,9 @@ if st.session_state.page == 1:
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
-            st.write(u)
             contain = wsU.find(query=u,in_column=0)
-            time.sleep(0.2)
 
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
-
-            st.write(u)
-            st.write(contain)
 
             if(contain is not None):
                 contain = list(set(wsU.get('B'+str(contain.row)).first().split(", "))) 
