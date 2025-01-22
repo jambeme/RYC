@@ -111,6 +111,7 @@ if st.session_state.page == 1:
             wsU = sh.get_worksheet(2)
             contain = wsU.find(query=u,in_column=0)
             time.sleep(2)
+            st.write(contain)
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
             if(contain is not None):
