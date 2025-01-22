@@ -20,10 +20,7 @@ if "page" not in st.session_state:
     st.session_state.page = 2
 
 if (major is None or u is None or grade is None) and st.session_state.page == 2:
-    time.sleep(3)
-    st.write(grade)
-    st.write(major)
-    st.write(u)
+    time.sleep(2)
 
     
 
@@ -51,6 +48,7 @@ if st.session_state.page == 0:
             controller.set('major',  major, expires_at = date, key='set3')
             st.session_state.reset = False
             st.session_state.page = 1
+            st.rerun()
 
 if st.session_state.page == 1:
     with holder.container():
