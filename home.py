@@ -18,7 +18,7 @@ holder = st.empty()
 
 if major is None or u is None or grade is None:
     time.sleep(3)
-    with holder.container:
+    with holder.container():
         st.write(grade)
         st.write(major)
         st.write(u)
