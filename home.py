@@ -114,6 +114,7 @@ if st.session_state.page == 1:
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
             st.write(u)
+            st.write(contain)
 
             if(contain is not None):
                 contain = list(set(wsU.get('B'+str(contain.row)).first().split(", "))) 
