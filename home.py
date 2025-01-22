@@ -48,7 +48,7 @@ if st.session_state.page == 0:
             controller.set('major',  major, expires_at = date, key='set3')
             st.session_state.reset = False
             st.session_state.page = 1
-            time.sleep(0.4)
+            time.sleep(0.5)
             streamlit_js_eval(js_expressions = "parent.window.location.reload()")
             
 
