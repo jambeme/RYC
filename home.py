@@ -16,12 +16,14 @@ major = controller.get('major')
 
 holder = st.empty()
 
-if major is None or u is None or grade is None:
+if "page" not in st.session_state:
+    st.session_state.page = 2
+
+if (major is None or u is None or grade is None) and st.session_state.page == 2:
     time.sleep(3)
-    with holder.container():
-        st.write(grade)
-        st.write(major)
-        st.write(u)
+    st.write(grade)
+    st.write(major)
+    st.write(u)
 
     
 
@@ -29,9 +31,6 @@ date = datetime.datetime(2199, 10, 25)
 
 if 'reset' not in st.session_state:
     st.session_state.reset = False
-
-if "page" not in st.session_state:
-    st.session_state.page = 2
 
 if major is None or u is None or grade is None or st.session_state.reset == True:
     st.session_state.page = 0
