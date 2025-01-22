@@ -41,8 +41,7 @@ if st.session_state.page == 0:
         major = st.selectbox('Enter the major/field you are most interested in:', options = ['Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
         send = st.button("Send Data")
         if(send):
-            if st.session_state.reset == True:
-                controller.set('uuid', u, expires_at = date, key = 'set')
+            controller.set('uuid', u, expires_at = date, key = 'set')
             controller.set('grade',  grade, expires_at = date, key='set2')
             controller.set('major',  major, expires_at = date, key='set3')
             st.session_state.reset = False
@@ -60,6 +59,7 @@ if st.session_state.page == 1:
             st.subheader("So what does all that yap above mean?")
             st.write("Rate your class let's you rate your classes at SAS and see what other people rated classes as, letting you know how hard or easy a class is!")
             st.subheader("Want to change your major/grade?")
+            st.write("Warning: This will reset your progress of what courses you have rated so far! The reviews are still held, but you will no longer be able to know what classes you rated.")
             reset = st.button("Reset")
             if reset:
                 st.session_state.reset = True
