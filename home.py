@@ -43,6 +43,7 @@ if st.session_state.page == 0:
         major = st.selectbox('Enter the major/field you are most interested in:', options = ['Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
         send = st.button("Send Data")
         if(send):
+            st.write("click")
             controller.set('uuid', u, expires_at = date, key = 'set')
             controller.set('grade',  grade, expires_at = date, key='set2')
             controller.set('major',  major, expires_at = date, key='set3')
