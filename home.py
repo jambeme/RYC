@@ -16,9 +16,6 @@ major = controller.get('major')
 
 if major is None or u is None or grade is None:
     time.sleep(3)
-    st.write(u)
-    st.write(grade)
-    st.write(major)
     
 
 date = datetime.datetime(2199, 10, 25)
