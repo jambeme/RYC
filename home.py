@@ -14,7 +14,7 @@ u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
 
-time.sleep(1)
+time.sleep(3)
 
 date = datetime.datetime(2199, 10, 25)
 
