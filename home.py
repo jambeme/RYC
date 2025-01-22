@@ -14,7 +14,7 @@ controller = stx.CookieManager()
 u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
-time.sleep(0.2)
+time.sleep(0.3)
 
 holder = st.empty()
 
@@ -104,6 +104,7 @@ if st.session_state.page == 1:
                 obj = obj.tolist()
                 add.insert(0, obj.pop(0))
             
+            vals['Category'] = add
 
             ws = sh.sheet1
 
@@ -136,3 +137,5 @@ if st.session_state.page == 1:
             st.dataframe(vals)
 
             st.line_chart(x= 'Class', data = vals[['Class', 'MEDIAN of Rating', 'AVERAGE of Rating']],  y_label= 'Rating')
+            
+            #st.line_chart(x= 'Category', data = vals[['Category', 'MEDIAN of Rating', 'AVERAGE of Rating']],  y_label= 'Rating')
