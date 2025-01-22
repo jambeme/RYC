@@ -14,7 +14,8 @@ u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
 
-time.sleep(3)
+if major is None or u is None or grade is None:
+    time.sleep(3)
 
 date = datetime.datetime(2199, 10, 25)
 
