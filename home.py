@@ -49,6 +49,8 @@ if st.session_state.page == 0:
             st.session_state.reset = False
             st.session_state.page = 1
             st.rerun()
+            
+            
 
 if st.session_state.page == 1:
     with holder.container():
