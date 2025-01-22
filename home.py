@@ -62,7 +62,10 @@ if st.session_state.page == 1:
             st.write("Warning: This will reset your progress of what courses you have rated so far! The reviews are still held, but you will no longer be able to know what classes you rated.")
             reset = st.button("Reset")
             if reset:
+                st.header("RESETTED")
+                time.sleep(5)
                 st.session_state.reset = True
+                
 
         with tab2:
             
