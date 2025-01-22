@@ -14,7 +14,7 @@ controller = stx.CookieManager()
 u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
-time.sleep(0.6)
+time.sleep(1)
 
 holder = st.empty()
 
