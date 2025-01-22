@@ -122,7 +122,7 @@ if st.session_state.page == 1:
 
             rating = st.slider("How do you rate " + c +" from easy to hard (1 = easy, 10 = hard).", 1, 10)
 
-            ls = [u, major, grade, c, rating-1]
+            ls = [u, major, grade, c, rating]
 
             send = st.button("Send Rating")
 
