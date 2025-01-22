@@ -41,8 +41,8 @@ if st.session_state.page == 0:
         u = str(uuid.uuid4())
         grade = st.selectbox('Enter your grade:', options = [9, 10, 11, 12])
         major = st.selectbox('Enter the major/field you are most interested in:', options = ['Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
-        send = st.button("Send Data")
-        if(send):
+        newButton = st.button("Send!")
+        if(newButton):
             st.write("click")
             controller.set('uuid', u, expires_at = date, key = 'set')
             controller.set('grade',  grade, expires_at = date, key='set2')
