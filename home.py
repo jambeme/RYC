@@ -14,13 +14,18 @@ u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
 
+holder = st.empty()
+
 if major is None or u is None or grade is None:
     time.sleep(3)
+    with holder.container:
+        st.write(grade)
+        st.write(major)
+        st.write(u)
+
     
 
 date = datetime.datetime(2199, 10, 25)
-
-holder = st.empty()
 
 if 'reset' not in st.session_state:
     st.session_state.reset = False
