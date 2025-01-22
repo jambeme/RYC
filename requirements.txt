@@ -3,3 +3,4 @@ extra_streamlit_components
 pandas
 gspread
 numpy
+streamlit-js-eval

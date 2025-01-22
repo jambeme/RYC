@@ -6,6 +6,7 @@ import gspread
 import datetime
 import time
 import numpy as np
+from streamlit_js_eval import streamlit_js_eval
 
 
 controller = stx.CookieManager()
@@ -13,6 +14,7 @@ controller = stx.CookieManager()
 u = controller.get('uuid')
 grade = controller.get('grade')
 major = controller.get('major')
+time.sleep(0.2)
 
 holder = st.empty()
 
@@ -21,8 +23,6 @@ if "page" not in st.session_state:
 
 if (major is None or u is None or grade is None) and st.session_state.page == 2:
     time.sleep(1)
-
-    
 
 date = datetime.datetime(2199, 10, 25)
 
@@ -41,16 +41,15 @@ if st.session_state.page == 0:
         u = str(uuid.uuid4())
         grade = st.selectbox('Enter your grade:', options = [9, 10, 11, 12])
         major = st.selectbox('Enter the major/field you are most interested in:', options = ['Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
-        newButton = st.button("Send!")
-        if(newButton):
-            st.write("click")
+        newButton = st.button("Send!", disabled=False, key=1)
+        if newButton:
             controller.set('uuid', u, expires_at = date, key = 'set')
             controller.set('grade',  grade, expires_at = date, key='set2')
             controller.set('major',  major, expires_at = date, key='set3')
             st.session_state.reset = False
             st.session_state.page = 1
-            st.rerun()
-            
+            time.sleep(0.1)
+            streamlit_js_eval(js_expressions = "parent.window.location.reload()")
             
 
 if st.session_state.page == 1:
