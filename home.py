@@ -15,6 +15,9 @@ grade = controller.get('grade')
 major = controller.get('major')
 
 if major is None or u is None or grade is None:
+    st.write(u)
+    st.write(grade)
+    st.write(major)
     time.sleep(3)
 
 date = datetime.datetime(2199, 10, 25)
@@ -62,8 +65,6 @@ if st.session_state.page == 1:
             st.write("Warning: This will reset your progress of what courses you have rated so far! The reviews are still held, but you will no longer be able to know what classes you rated.")
             reset = st.button("Reset")
             if reset:
-                st.header("RESETTED")
-                time.sleep(5)
                 st.session_state.reset = True
                 
 
