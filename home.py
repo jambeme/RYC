@@ -113,6 +113,8 @@ if st.session_state.page == 1:
 
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
+            st.write(u)
+
             if(contain is not None):
                 contain = list(set(wsU.get('B'+str(contain.row)).first().split(", "))) 
                 st.session_state.classes = pd.DataFrame(st.session_state.classes)
@@ -121,7 +123,7 @@ if st.session_state.page == 1:
             c = st.selectbox("What class would you like to rate?", options=st.session_state.classes)
 
             rating = st.slider("How do you rate " + c +" from easy to hard (1 = easy, 10 = hard).", 1, 10)
-
+            
             ls = [u, major, grade, c, rating-1]
 
             send = st.button("Send Rating")
