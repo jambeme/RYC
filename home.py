@@ -109,7 +109,7 @@ if st.session_state.page == 1:
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
-            contain = wsU.find(query=u,in_column=0)
+            contain = wsU.find(query=u,in_column=0, case_sensitive=False)
 
             st.write(contain)
             st.write(u)
