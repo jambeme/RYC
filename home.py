@@ -109,14 +109,14 @@ if st.session_state.page == 1:
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
-            contain = wsU.findall(query=u,in_column=0)
+            contain = wsU.find(query=u,in_column=0)
 
             st.write(contain)
             st.write(u)
 
             if contain is None:
                 time.sleep(4)
-                contain = wsU.findall(query=u,in_column=0)
+                contain = wsU.find(query=u,in_column=0)
 
             st.write(contain)
 
