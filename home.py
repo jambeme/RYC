@@ -104,12 +104,16 @@ if st.session_state.page == 1:
                 obj = obj.tolist()
                 add.insert(0, obj.pop(0))
             
-            vals['Category'] = add
+            #vals['Category'] = add
 
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
             contain = wsU.find(query=u,in_column=0)
+
+            st.write(contain)
+            st.write(u)
+
             if contain is None:
                 contain = wsU.find(query=u,in_column=0)
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
