@@ -109,22 +109,18 @@ if st.session_state.page == 1:
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
-            st.write(wsU.get_all_records())
-            contain = wsU.find(query=u,in_column=0, case_sensitive=False)
+            
+            contain = pd.DataFrame(wsU.get_all_records())
 
-            st.write(contain)
-            st.write(u)
+            contain = contain[contain['UUID'] == u].to_numpy()
 
-            if contain is None:
-                time.sleep(4)
-                contain = wsU.find(query=u,in_column=0)
 
-            st.write(contain)
 
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
             if(contain is not None):
-                contain = list(set(wsU.get('B'+str(contain.row)).first().split(", "))) 
+                contain = str(contain.T[1]).replace("['", "").replace("']", "")
+                contain = contain.split(", ")
                 st.session_state.classes = pd.DataFrame(st.session_state.classes)
                 st.session_state.classes = st.session_state.classes[~st.session_state.classes['Classname'].isin(contain)]
 
