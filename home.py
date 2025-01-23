@@ -109,6 +109,7 @@ if st.session_state.page == 1:
             ws = sh.sheet1
 
             wsU = sh.get_worksheet(2)
+            st.write(wsU.get_all_records())
             contain = wsU.find(query=u,in_column=0, case_sensitive=False)
 
             st.write(contain)
