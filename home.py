@@ -40,7 +40,7 @@ if st.session_state.page == 0:
         st.subheader("Give us some information about you before you start.")
         u = str(uuid.uuid4())
         grade = st.selectbox('Enter your grade:', options = [9, 10, 11, 12])
-        major = st.selectbox('Enter the major/field you are most interested in:', options = ['Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
+        major = st.selectbox('Enter the major/field you are most interested in:', options = ['Undecided', 'Visual/Performing Arts', 'Buisness/Econ', 'Comp-Sci', 'Med', 'Engineering', 'Education', 'Social Sciences', 'Psychology', 'Communications', 'Law', 'Accounting', 'Physics'])
         newButton = st.button("Send!", disabled=False, key=1)
         if newButton:
             controller.set('uuid', u, expires_at = date, key = 'set')
