@@ -115,11 +115,11 @@ if st.session_state.page == 1:
             st.write(u)
 
             if contain is None:
-                time.sleep(2)
+                time.sleep(4)
                 contain = wsU.find(query=u,in_column=0)
 
             st.write(contain)
-            
+
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
             if(contain is not None):
