@@ -110,9 +110,8 @@ if st.session_state.page == 1:
 
             wsU = sh.get_worksheet(2)
             contain = wsU.find(query=u,in_column=0)
-            time.sleep(2)
-            st.write(u)
-            st.write(contain)
+            if contain is None:
+                contain = wsU.find(query=u,in_column=0)
             st.session_state.classes = st.session_state.category.where(st.session_state.category["Category"] == type).dropna(how='all')["Classname"]
 
             if(contain is not None):
@@ -121,7 +120,6 @@ if st.session_state.page == 1:
                 st.session_state.classes = st.session_state.classes[~st.session_state.classes['Classname'].isin(contain)]
 
             c = st.selectbox("What class would you like to rate?", options=st.session_state.classes)
-            st.write(contain)
             rating = st.slider("How do you rate " + c +" from easy to hard (1 = easy, 10 = hard).", 1, 10)
             
             ls = [u, major, grade, c, rating-1]
